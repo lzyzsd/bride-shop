@@ -1,0 +1,35 @@
+body {
+    background: #FCFCFC url(../images/bg.jpg) repeat;
+}
+.ui.segment {
+    -webkit-box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+    box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+    font-size: 20px;
+}
+/*body {
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 20px;
+    background: #FCFCFC url(../images/bg.jpg) repeat;
+    margin: 0px;
+    padding: 0px;
+    color: #555555;
+    min-width: 320px;
+}
+
+.hero-unit {
+    margin: 50px auto 0 auto;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 60px;
+}
+
+.hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+*/

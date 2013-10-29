@@ -1,0 +1,49 @@
+<table class="ui sortable table segment">
+  <thead>
+  <tr>
+    <th style="min-width: 80px;">First name</th>
+    <th style="min-width: 80px;">Last name</th>
+    <th style="width:120px;"> </th>
+    <th style="width:120px;"> </th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td><a ng-click="editUser(user.id)" class="ui large icon button"><i class="icon edit"></i>编辑</a></td>
+        <td><a ng-click="deleteUser(user.id)" class="ui red large labled icon button"><i class="awesome remove icon"></i>删除</a></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="4">
+        <div class="ui blue labeled icon button" ng-click="createNewUser()"><i class="user icon"></i> Add User</div>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+
+<div class="ui pagination menu">
+  <a class="icon item">
+    <i class="icon left arrow"></i>
+  </a>
+  <a class="active item">
+    1
+  </a>
+  <div class="disabled item">
+    ...
+  </div>
+  <a class="item">
+    10
+  </a>
+  <a class="item">
+    11
+  </a>
+  <a class="item">
+    12
+  </a>
+  <a class="icon item">
+    <i class="icon right arrow"></i>
+  </a>
+</div>

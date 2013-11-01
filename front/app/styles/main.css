@@ -1,9 +1,55 @@
 body {
     background: #fafafa;
+
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
     color: #333;
 }
 
 .image-container {
     width: 930px;
+}
+
+/* 主导航 */
+#category-list {
+  margin-bottom:40px;
+}
+
+#category-list ul {
+  width:960px;
+  margin:0 auto;
+  padding:4px 0;
+  font-size:14px;
+  overflow:hidden;
+  *zoom:1;
+  list-style-type:none;
+}
+
+#category-list li {
+  float:left;
+  padding: 0 10px;
+}
+
+#category-list li:first-child {
+  border-left:0;
+}
+
+#category-list li:last-child {
+  border-right:0;
+}
+
+#category-list a {
+  text-decoration:none;
+  display:block;
+padding:5px 10px;
+color:#444;
+
+}
+
+#category-list .current-menu-item a {
+  border-bottom:3px solid #b00;
+}
+
+#category-list a:hover {
+  border-bottom:3px solid #b00;
 }

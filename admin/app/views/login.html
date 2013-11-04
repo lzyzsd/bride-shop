@@ -1,8 +1,8 @@
-<div class="ui form segment" ng-controller="LoginCtrl">
+<form class="ui form segment" ng-controller="LoginCtrl" name="loginForm" novalidate>
   <div class="field">
     <label>Username</label>
     <div class="ui left labeled icon input">
-      <input type="text" placeholder="Username" ng-model="user.username">
+      <input type="text" placeholder="Username" ng-model="user.username" minlength="4" required>
       <i class="user icon"></i>
       <div class="ui corner label">
         <i class="icon asterisk"></i>
@@ -22,5 +22,8 @@
   <div class="ui error message">
     <div class="header">We noticed some issues</div>
   </div>
-  <div class="ui blue submit button" ng-click="login(user)">Login</div>
-</div>
+  <div>
+    <span ng-show="loginForm.username.$error.required">Username is required.</span>
+  </div>
+  <div class="ui blue submit button" ng-click="login(user)" ng-disabled="loginForm.$invalid">Login</div>
+</form>

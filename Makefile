@@ -6,8 +6,9 @@ test:
 	@NODE_ENV=test ./node_modules/mocha/bin/mocha \
 		--reporter spec \
 		$(MOCHA_OPTS) \
-		backend/test/service/**/*.test.coffee \
-		backend/test/controllers/**/*.test.coffee \
+		--require backend/tests/init.js \
+		backend/tests/service/**/*.test.coffee \
+		backend/tests/controllers/**/*.test.coffee \
 
 test-file:
 	@NODE_ENV=test ./node_modules/mocha/bin/mocha \
@@ -19,8 +20,8 @@ test-cov:
 	@NODE_ENV=test ./node_modules/mocha/bin/mocha \
 		--require blanket -R html-cov > coverage.html \
 		$(MOCHA_OPTS) \
-		backend/test/service/**/*.test.coffee \
-		backend/test/controllers/**/*.test.coffee \
+		backend/tests/service/**/*.test.coffee \
+		backend/tests/controllers/**/*.test.coffee \
 
 
 deploy:

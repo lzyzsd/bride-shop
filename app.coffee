@@ -6,17 +6,20 @@ sign = require "./backend/controllers/sign"
 admin = require "./backend/controllers/admin"
 http = require "http"
 path = require "path"
+
 app = express()
+global.app = app
+app.set 'root_dir', __dirname
 
 # all environments
 app.set "port", process.env.PORT or 3000
-app.set "views", __dirname + "/backend/views"
-app.set "view engine", "ejs"
+# app.set "views", __dirname + "/backend/views"
+# app.set "view engine", "ejs"
 app.use express.favicon()
 app.use express.logger "dev"
 app.use express.bodyParser()
 app.use express.methodOverride()
-app.use express.cookieParser "your secret here"
+app.use express.cookieParser "bride shop"
 app.use express.session()
 app.use app.router
 # app.use require("stylus").middleware(__dirname + "/backend/public")
@@ -42,6 +45,10 @@ app.get "/fileupload", (req, res) ->
   res.render "fileupload"
 
 app.post "/fileupload", product.upload
-http.createServer(app).listen app.get("port"), ->
-  console.log "Express server listening on port " + app.get("port")
+
+unless module.parent
+  http.createServer(app).listen app.get("port"), ->
+    console.log "Express server listening on port " + app.get("port")
+
+module.exports = app
 

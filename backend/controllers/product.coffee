@@ -1,9 +1,10 @@
-require "mongoose-pagination"
+require 'mongoose-pagination'
 Category = require("../models/index").Category
 Product = require("../models/index").Product
-fs = require("fs")
-formidable = require("formidable")
-util = require("util")
+fs = require 'fs'
+formidable = require 'formidable'
+util = require 'util'
+
 exports.get = (req, res) ->
   id = req.params["id"]
   Product.find
@@ -20,11 +21,9 @@ exports.get = (req, res) ->
     address:
       street: "5.Ave"
 
-
-
 #
 # * GET images listing.
-# 
+#
 exports.list = (req, res) ->
   page = req.query["page"] * 1 or 1
   category = req.query["category"]
@@ -49,7 +48,13 @@ exports.list = (req, res) ->
 
 
 exports.json_list = (req, res) ->
-  Product.find {}, (err, products) ->
+  category = req.query['category'] or 'default'
+  page = if req.query['page'] then req.query['page']*1 else 1
+  options = {}
+  options.category = category
+  pageSize = 12
+
+  Product.find(options).paginate page, pageSize, (err, products) ->
     res.json products  unless err
 
 
@@ -103,7 +108,7 @@ exports.json_delete = (req, res) ->
 
 
 exports.upload = (req, res) ->
-  
+
   # var form = new formidable.IncomingForm();
   # console.log(form);
   # // console.log(req);
